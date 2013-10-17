@@ -1,4 +1,4 @@
-gstreamermm-bugs
+gstmm-issues
 ================
 
-Test cases for supposed bugs in gstreamermm
+Test cases for issues with gstreamermm
