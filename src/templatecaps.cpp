@@ -1,12 +1,11 @@
 /* Copyright (C) <2013> Dirk Van Haerenborgh <vhdirk@gmail.com>
- * This file is part of GstEditor.
  *
- * GstEditor is free software; you can redistribute it and/or
+ * This file is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
  * License as published by the Free Software Foundation; either
  * version 3 of the License, or (at your option) any later version.
  *
- * This library is distributed in the hope that it will be useful,
+ * This file is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Library General Public License for more details.
@@ -29,7 +28,7 @@ int main (int argc, char *argv[])
   Glib::RefPtr<Gst::ElementFactory> factory = Gst::ElementFactory::find("videoconvert");
 
 
-  typedef Glib::ListHandle< Glib::RefPtr<Gst::PadTemplate> > PadTemplateList;
+  typedef std::vector< Gst::StaticPadTemplate > PadTemplateList;
 
   PadTemplateList padtemplates = factory->get_static_pad_templates();
 
@@ -37,9 +36,7 @@ int main (int argc, char *argv[])
   for(PadTemplateList::iterator iter = padtemplates.begin();
       iter != padtemplates.end(); ++iter )
   {
-      if (!*iter) continue;
-
-      Glib::RefPtr<Gst::PadTemplate> padtempl = (*iter); //->get();
+      Glib::RefPtr<Gst::PadTemplate> padtempl = (iter)->get();
       Glib::RefPtr<Gst::Caps> caps = padtempl->get_caps();
   }
 

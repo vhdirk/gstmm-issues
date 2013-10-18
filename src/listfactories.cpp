@@ -1,12 +1,11 @@
 /* Copyright (C) <2013> Dirk Van Haerenborgh <vhdirk@gmail.com>
- * This file is part of GstEditor.
  *
- * GstEditor is free software; you can redistribute it and/or
+ * This file is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
  * License as published by the Free Software Foundation; either
  * version 3 of the License, or (at your option) any later version.
  *
- * This library is distributed in the hope that it will be useful,
+ * This file is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Library General Public License for more details.
@@ -43,6 +42,7 @@ int main (int argc, char *argv[])
     {
       //TODO: this will segfaults on a bad cast. How to I test if the feature is also a factory??
       Glib::RefPtr<Gst::ElementFactory> ef = Glib::RefPtr<Gst::ElementFactory>::cast_dynamic(*itt);
+      if (!ef) continue;
 
       std::vector<Glib::ustring> keys = ef->get_metadata_keys();
 

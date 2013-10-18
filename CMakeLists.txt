@@ -20,7 +20,7 @@ cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 #------------------------------------------------------------------------
 # project name
 #------------------------------------------------------------------------
-project(gstmmbugs)
+project(gstmm-issues)
 
 #------------------------------------------------------------------------
 # build defenitions (on top for fast access)
